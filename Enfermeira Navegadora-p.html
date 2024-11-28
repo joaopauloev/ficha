@@ -1,0 +1,901 @@
+<style>
+    .box{
+        border-radius: 8px; color: #B2B2B2; 
+        border: 1px solid; 
+    }
+
+    .box-tgef{
+        border-radius: 8px;  
+        border: 1px solid #B2B2B2;
+        padding: 8px;
+    }
+
+    .box-title{
+        border-radius: 4px;
+        background: #DDD;
+        width: 98%;
+        margin-left: 1%;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+/* -- OPCIONAL -- */
+
+    .conteudo{
+        font-family: 'Roboto', sans-serif !important;
+    }
+    
+/* -------------------- */
+
+    p{
+        margin: 0;
+        padding: 0;
+    }
+
+    .t-center{
+        text-align: center;
+    }
+
+/* -- MARGINS TOPS PADRÕES -- */
+
+    .mt-5{
+        margin-top: 5px;
+    }
+
+    .mt-10{
+        margin-top: 10px;
+    }
+
+    .mt-20{
+        margin-top: 20px;
+    }
+
+    .mt-50{
+        margin-top: 50px;
+    }
+
+    .mt-55{
+        margin-top: 55px;
+    }
+
+    .mt-65{
+        margin-top: 65px;
+    }
+
+    .fs-8{
+        font-size: 8px;
+        color: black;
+    }
+    .fs-10{
+        font-size: 10px;
+        color: black;
+    }
+
+    .fs-12{
+        font-size: 12px;
+        color: black;
+    }
+
+    .textarea {
+        padding: 8px;
+        border-radius: 4px;
+        border: thin solid #B2B2B2;
+        font-size: 10px;
+        letter-spacing: 1px;
+        height: 200px;
+        resize: vertical;
+        width: 100%;
+    }
+
+    .input{
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        padding: 8px;
+        color: #495057;
+        width: 100%;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .rounded-button {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+      background-color: #DDD;
+      cursor: pointer;
+      color: black;
+      width: 25%;
+    }
+
+    ::placeholder{
+        text-align: center;
+    }
+
+    .w-5{
+        width: 5%;
+    }
+
+    .w-10{
+        width: 10%;
+    }
+
+    .w-30{
+        width: 30%;
+    }
+
+    .w-50{
+        width: 50%;
+    }
+
+    .w-55{
+        width: 55%;
+    }
+
+    .w-85{
+        width: 85%;
+    }
+
+    .w-100{
+        width: 100%;
+    }
+
+    .p-title{
+        padding: 8px 0px 0px 0px;
+    }
+
+    .p-pacient{
+        padding: 8px 0px 8px 0px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: center;
+    }
+</style>
+<div class="col-xs-12">
+    <p class="fs-10 p-title">{$cliente_nome} | CRM: {$crmMedicoLogado} {$crmufMedicoLogado}</p>
+</div>
+<div class="col-xs-12 box fs-12">
+    <p class="p-pacient" style="color: black;"><strong>PACIENTE:</strong> {$nomepcte}</p>
+</div>
+<div class="col-xs-12 box-title mt-5 t-center fs-12">
+    <p style="padding: 8px;"><strong> FICHA - ENFERMEIRA NAVEGADORA</strong></p>
+</div>
+
+<div class="col-xs-12 mt-5">
+    <strong>DADOS PESSOAIS</strong>
+</div>
+
+<div class="col-xs-6 mt-5">
+    <strong>1. ID do paciente:</strong> {$idpcte}
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>2. Sexo:</strong> {$sexopcte}
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>3. Data de Nascimento:</strong> {$nascimentopcte}
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>4. Idade:</strong> {$idadepcte}
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>5. Raça:</strong> {$etnia}
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>6. Identidade de gênero:</strong> {$genero}
+</div>
+
+<div class="col-xs-12 mt-20">
+    <strong>Tipo de consulta</strong>
+</div>
+<div class="col-xs-12 mt-5">
+    <strong>7. Qual o tipo de consulta a ser realizada?</strong> 
+<div class="col-xs-4 mt-5">
+
+<div class="col-xs-12 mt-20">
+    <strong>Triagem</strong>
+</div>    
+    <strong>8. Peso corporal:</strong> {$pesopcte} kg
+</div>
+<div class="col-xs-4 mt-5">
+    <strong>9. Altura:</strong> {$alturapcte} cm
+</div>
+<div class="col-xs-4 mt-5">
+    <strong>10. IMC:</strong> {$imcpcte}
+</div>
+
+<div class="col-xs-12 mt-5">
+    <strong>Índice de massa corporal:</strong> 
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q1_name}" id="{$q1_id}" value="MC < 24,9"> <span style="color: green;"><b>IMC <  24,9</b></span>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q1_name}" id="{$q1_id}" value="IMC 25 - 29,9 (Sobrepeso)"> <span style="color: orange;"><b> IMC 25 - 29,9 (Sobrepeso)</b></span>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q1_name}" id="{$q1_id}" value="IMC 30 - 34,9 (Obesidade Grau I)"> <span style="color: rgb(255, 35, 35);"><b> IMC 30 - 34,9 (Obesidade Grau I)</b></span>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q1_name}" id="{$q1_id}" value="IMC 35 - 39,9 (Obesidade Grau II)"> <span style="color: rgb(212, 0, 0);"><b> IMC 35 - 39,9 (Obesidade Grau II)</b></span>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q1_name}" id="{$q1_id}" value="IMC 40 - 44,9 (Obesidade Grau III)"> <span style="color: rgb(131, 0, 0);"><b> IMC 40 - 44,9 (Obesidade Grau III)</b></span>
+</div>
+
+<div class="col-xs-12 mt-20">
+    <strong>Acompanhamento (Linha de obesidade - cirúrgicos)</strong>
+            30 dias após cirurgia
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>8. Paciente permanece vivo?</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 Acompanhamento (Linha de obesidade - cirúrgicos)-->
+<div class="col-xs-6 mt-5">
+    <strong>9. Causa da morte:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>10. Data do óbito:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>11. Pessoa que respondeu as informações do Óbito. (Inserir nome e parentesco)</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>12. Qual fase de acompanhamento o paciente está?</strong> 
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q2_name}" id="{$q2_id}" value="1 mês"> <b> 1 mês</b>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q2_name}" id="{$q2_id}" value="3 meses"> <b> 3 meses</b>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q2_name}" id="{$q2_id}" value="6 meses"> <b> 6 meses</b>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q2_name}" id="{$q2_id}" value="1 ano"> <b> 1 ano</b>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q2_name}" id="{$q2_id}" value="1 ano e 6 meses"> <b>  1 ano e 6 meses</b>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q2_name}" id="{$q2_id}" value="2 anos"> <b> 2 anos</b>
+</div>
+<div class="col-xs-12 mt-5">
+    <input type="radio" name="{$q2_name}" id="{$q2_id}" value="Mais de 2 anos"> <b> Mais de 2 anos</b>
+</div>
+
+<div class="col-xs-6 mt-5">
+    <strong>13. O paciente apresenta algum dos critérios de exclusão para o tratamento de obesidade?</strong> 
+    (Se resposta for: Gravidez; Em tratamento oncológico) <b>Aparecer um observação para o enfermeira:</b> Paciente <b>NÃO</b> elegível para a linha de obesidade.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>14. Paciente refere ferida operatória com sinais de infecção em até 7 dias após cirurgia?</strong> 
+            Considerar sinais de infecção: dor, calor, rubor, calor e edema
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e SIM da 14 -->
+ 
+<div class="col-xs-6 mt-5">
+    <strong>15. Se ferida operatória com sinais de infecção, descreva relato da paciente:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>16. Paciente refere dor em membros inferiores?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>17. Paciente está evacuando normalmente?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>18. Paciente aceitando bem a dieta?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>19. Paciente refere dor?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>20. Paciente precisou dar entrada na emergência?</strong> 
+            Se não, traçar conduta.
+</div>
+<!-- Caso a resposta seja NÃO da pergunta 8 e SIM da 14 e SIM da 20 -->
+
+<div class="col-xs-6 mt-5">
+    <strong>21. Se sim, qual foi a causa?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>22. Data da entrada na emergência:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>23. Paciente ser reoperado ou realizou procedimento endoscópico?</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e SIM da 14 e SIM da 20 e SIM da 23 -->
+
+<div class="col-xs-6 mt-5">
+    <strong>24. Se sim, descrever o nome do procedimento:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>25. Se precisou ser reoperado, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>26. Data da reoperação ou procedimento endoscópico.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>27. Classificar complicação cirúrgica: grau III-V 6 meses após procedimento cirúrgico.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>28. Paciente precisou de internação hospitalar?</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e SIM da 14 e SIM da 20 e SIM da 23 e SIM da 28 -->
+
+<div class="col-xs-6 mt-5">
+    <strong>29. Se sim, qual o motivo do internamento?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30. Data da Internação:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31. Paciente precisou ser internado em UTI?</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e SIM da 14 e SIM da 20 e SIM da 23 e SIM da 28 e SIM da 31 -->
+
+<div class="col-xs-6 mt-5">
+    <strong>32. Data da Internação em UTI:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33. Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>34. Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>35. Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>36. Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>37. Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 -->
+<div class="col-xs-6 mt-5">
+    <strong>15.Paciente refere dor em membros inferiores?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>16.Paciente está evacuando normalmente?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>17.Paciente aceitando bem a dieta?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>18.Paciente refere dor?</strong> 
+            Se sim, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5"> condicao
+    <strong>19.Paciente precisou dar entrada na emergência?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>20.Se sim, qual foi a causa?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>21.Data da entrada na emergência</strong> 
+</div>
+<div class="col-xs-6 mt-5"> tem condicao
+    <strong>22.Paciente ser reoperado ou realizou procedimento endoscópico?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>23.Se sim, descrever o nome do procedimento:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>24. Se precisou ser reoperado, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>25.Data da reoperação ou procedimento endoscópico.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>26.Classificar complicação cirúrgica: grau III-V  6 meses após procedimento cirúrgico.</strong> 
+</div>
+<div class="col-xs-6 mt-5"> temm condicao
+    <strong>27.Paciente precisou de internação hospitalar?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>28.Se sim, qual o motivo do internamento?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Data da Internação</strong> 
+</div>
+<div class="col-xs-6 mt-5"> tem condicao
+    <strong>30.Paciente precisou ser internado em UTI?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Data da Internação em UTI</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>34.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>35.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>36.Condutas e/ou observações</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e NÃO da 19 -->
+<div class="col-xs-6 mt-5"> tem condicao
+    <strong>20.Paciente ser reoperado ou realizou procedimento endoscópico?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>21.Se sim, descrever o nome do procedimento</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>22.Se precisou ser reoperado, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>23.Data da reoperação ou procedimento endoscópico.</strong>         
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>24.Classificar complicação cirúrgica: grau III-V  6 meses após procedimento cirúrgico.</strong> 
+</div>
+<div class="col-xs-6 mt-5"> condicao
+    <strong>25.Paciente precisou de internação hospitalar?</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e NÃO da 19 e SIM da 25 -->
+<div class="col-xs-6 mt-5">
+    <strong>26.Se sim, qual o motivo do internamento?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>27.Data da Internação</strong> 
+</div>
+<div class="col-xs-6 mt-5"> condicao
+    <strong>28.Paciente precisou ser internado em UTI?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Data da Internação em UTI:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>34.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e NÃO da 19 e NÃO da 25 -->
+<div class="col-xs-6 mt-5">
+    <strong>26.Paciente precisou ser internado em UTI?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>27.Data da Internação em UTI</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>28.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Se outro, descrevê-lo:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e NÃO da 19 e NÃO da 25 e NÃO da 26 -->
+<div class="col-xs-6 mt-5">
+    <strong>27.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>28.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e SIM da 19 e NÃO da 22 -->
+<div class="col-xs-6 mt-5">
+    <strong>23.Classificar complicação cirúrgica: grau III-V  6 meses após procedimento cirúrgico.</strong> 
+</div>
+<div class="col-xs-6 mt-5"> condicao
+    <strong>24.Paciente precisou de internação hospitalar?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>25.Se sim, qual o motivo do internamento?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>26.Data da Internação:</strong> 
+</div>
+<div class="col-xs-6 mt-5"> condicao
+    <strong>27.Paciente precisou ser internado em UTI?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>28.Data da Internação em UTI:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Se outro, descrevê-lo.:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e SIM da 19 e NÃO da 22 e NÃO da 24 -->
+<div class="col-xs-6 mt-5"> condicao
+    <strong>25.Paciente precisou ser internado em UTI?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>26.Data da Internação em UTI</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>27.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>28.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e SIM da 19 e NÃO da 22 e NÃO da 24 e NÃO da 25-->
+<div class="col-xs-6 mt-5">
+    <strong>26.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>27.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>28.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e SIM da 19 e SIM da 22 e SIM da 27 -->
+<div class="col-xs-6 mt-5">
+    <strong>28.Se sim, qual o motivo do internamento?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Data da Internação</strong> 
+</div>
+<div class="col-xs-6 mt-5"> condicao
+    <strong>30.Paciente precisou ser internado em UTI?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Data da Internação em UTI:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>34.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>35.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>36.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e SIM da 19 e SIM da 22 e SIM da 27 e NÂO da 30 -->
+<div class="col-xs-6 mt-5">
+    <strong>31.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Se sim, qual tipo de evento adverso</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>34.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>35.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e SIM da 19 e SIM da 22 e NÃO da 27 -->
+<div class="col-xs-6 mt-5">
+    <strong>28.Paciente precisou ser internado em UTI?</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e SIM da 19 e SIM da 22 e NÃO da 27 e SIM da 28-->
+<div class="col-xs-6 mt-5">
+    <strong>29.Data da Internação em UTI</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Se sim, qual tipo de evento adverso</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>34.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14 e SIM da 19 e SIM da 22 e NÃO da 27 e NÃO da 28-->
+<div class="col-xs-6 mt-5">
+    <strong>29.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja SIM da pergunta 8 -->
+<div class="col-xs-6 mt-5">
+    <strong>9.Qual fase de acompanhamento o paciente está?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>10.O paciente apresenta algum dos critérios de exclusão para o tratamento de obesidade?</strong> 
+            (Se resposta for: Gravidez; Em tratamento oncológico) <b>Aparecer um observação para o enfermeira:</b> Paciente <b>NÃO</b> elegível para a linha de obesidade.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>11.Paciente refere ferida operatória com sinais de infecção em até 7 dias após cirurgia?</strong> 
+            Considerar sinais de infecção: dor, calor, rubor, calor e edema
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>12.Se ferida operatória com sinais de infecção, descreva relato da paciente:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>13.Paciente refere dor em membros inferiores?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>14.Paciente está evacuando normalmente?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>15.Paciente aceitando bem a dieta?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>16.Paciente refere dor?</strong> 
+            Se sim, traçar conduta.       
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>17.Paciente precisou dar entrada na emergência?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>18.Se sim, qual foi a causa?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>19.Data da entrada na emergência:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>20.Paciente ser reoperado ou realizou procedimento endoscópico?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>21.Se sim, descrever o nome do procedimento:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>22.Se precisou ser reoperado, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>23.Data da reoperação ou procedimento endoscópico.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>24.Classificar complicação cirúrgica: grau III-V  6 meses após procedimento cirúrgico.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>25.Paciente precisou de internação hospitalar?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>26.Se sim, qual o motivo do internamento?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>27.Data da Internação:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>28.Paciente precisou ser internado em UTI?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Data da Internação em UTI:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>34.Condutas e/ou observações:</strong> 
+</div>
+
+<!-- Caso a resposta seja SIM da pergunta 8 e NÃO da pergunta 11 -->
+<div class="col-xs-6 mt-5">
+    <strong>12.Paciente refere dor em membros inferiores?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>13.Paciente está evacuando normalmente?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>14.Paciente aceitando bem a dieta?</strong> 
+            Se não, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>15.Paciente refere dor?</strong> 
+            Se sim, traçar conduta.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>16.Paciente precisou dar entrada na emergência?</strong> 
+</div>
+
+<!-- Caso a resposta seja SIM da pergunta 8 e NÃO da pergunta 11 e SIM da pergunta 16 -->
+<div class="col-xs-6 mt-5">
+    <strong>17.Se sim, qual foi a causa?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>18.Data da entrada na emergência</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>19.Paciente ser reoperado ou realizou procedimento endoscópico?</strong> 
+</div>
+
+<!-- Caso a resposta seja SIM da pergunta 8 e NÃO da pergunta 11 e SIM da pergunta 16 e SIM da pergunta 19-->
+<div class="col-xs-6 mt-5">
+    <strong>20.Se sim, descrever o nome do procedimento</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>21.Se precisou ser reoperado, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>22.Data da reoperação ou procedimento endoscópico.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>23.Classificar complicação cirúrgica: grau III-V  6 meses após procedimento cirúrgico.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>24.Paciente precisou de internação hospitalar?</strong> 
+</div>
+
+<!-- Caso a resposta seja SIM da pergunta 8 e NÃO da 11 e SIM da 16 e SIM da 19 e SIM da 24-->
+<div class="col-xs-6 mt-5">
+    <strong>25.Se sim, qual o motivo do internamento?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>26.Data da Internação:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>27.Paciente precisou ser internado em UTI?</strong> 
+</div>
+
+<!-- Caso a resposta seja SIM da pergunta 8 e NÃO da 11 e SIM da 16 e SIM da 19 e SIM da 24 e SIM da 27-->
+<div class="col-xs-6 mt-5">
+    <strong>28.Data da Internação em UTI:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>29.Se atendimento na urgência ou internação, em qual instituição?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>30.Houve algum evento adverso relacionado ao internamento ou durante atendimento na urgência?</strong> 
+            Esclarecer ao paciente o que é evento adverso.
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>31.Se sim, qual tipo de evento adverso:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>32.Se outro, descrevê-lo.</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>33.Condutas e/ou observações:</strong> 
+</div>
+
+<div class="col-xs-12 mt-20">
+    <strong>Acompanhamento (Linha de obesidade - clínico)</strong>
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>8. Paciente permanece vivo?</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 Acompanhamento (Linha de obesidade - clínico)-->
+<div class="col-xs-6 mt-5">
+    <strong>9.Causa da morte:</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>10.Data do óbito</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>11.Pessoa que respondeu as informações do Óbito. (Inserir nome e parentesco)</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>12.Qual fase de acompanhamento o paciente está?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>13.Paciente está grávida e/ou está em tratamento oncológico?</strong> 
+</div>
+<div class="col-xs-6 mt-5">
+    <strong>14.Paciente em tratamento clínico Farmacológico?</strong> 
+</div>
+
+<!-- Caso a resposta seja NÃO da pergunta 8 e NÃO da 14-->
+<div class="col-xs-6 mt-5">
+    <strong>15.Durante tratamento clínico paciente precisou dar entrada na emergência?</strong> 
+</div>
